@@ -1,5 +1,5 @@
 module Poirot
-  module AssetHelper
+  module ViewHelpers
     def template_include_tag(*sources)
       sources.collect do |source|
         template = File.open(_poirot_resolve_partial_path(source), "rb")

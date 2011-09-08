@@ -2,14 +2,13 @@
 
 ## Description
 
-Allows you to use [Mustache](http://mustache.github.com/) template partials in Rails, also
-ads a helper method to easily allow JavaScript to re-use the same templates.
+Allows you to use [Mustache](http://mustache.github.com/) template partials in Rails and share these with Javascript using the Asset Pipeline
 
 ## Usage
 
 Create a partial just like you would with erb, prefixing the name with an underscore.
 
-    app/views/posts/_post_list.html.mustache
+    app/mustaches/posts/_post_list.mustache
 
 The template will have access to all normal rails helper methods and any instance variables
 that were set in the controller.  If you need more than this an optional view class can be
@@ -32,17 +31,10 @@ included, it should have the same name as the partial, but without the underscor
 The view class has access to all the normal Rails helpers and access to the controller
 instance variables, e.g @post becomes the method post.
 
-Also included is a simple view helper for including mustache templates in a page ready for
-use by JavaScript.
+Then in your Javascript simply add a Sprockets require directive
 
-    <%= template_include_tag 'post_list' %>
-
-The above will insert a script tag with the contents of the partial called `post_list`, the 
-type will be set as `text/mustache` and the id will be `post-list-template`.
-
-    <script id="post-list-template" type="text/mustache">
-      <!-- template will be here! -->
-    </script>
+    //= require posts/_post_list
+    MustacheTemplate['posts/_post_list']
 
 ### Javascript Helper
 
@@ -73,4 +65,4 @@ An [example](http://github.com/olivernn/notepad) app using Poirot
 
 ## Credits
 
-[Mark Evans](http://github.com/markevans) & [Oliver Nightingale](http://github.com/olivernn)
+[Mark Evans](http://github.com/markevans), [Oliver Nightingale](http://github.com/olivernn) & [Theo Cushion](http://github.com/theozaurus)
