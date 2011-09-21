@@ -25,7 +25,7 @@ module Poirot
       <<-POIROT
 (function() {
   if(!MustacheTemplates){ MustacheTemplates = {}; }
-  MustacheTemplates['#{template_name}'] = '#{escape_javascript(data)';
+  MustacheTemplates['#{template_name}'] = '#{escape_javascript(data)}';
 })();
       POIROT
     end
