@@ -24,7 +24,7 @@ module Poirot
       template_name = scope.logical_path
       <<-POIROT
 (function() {
-  if(!MustacheTemplates){ MustacheTemplates = {}; }
+  if(typeof MustacheTemplates == "undefined"){ MustacheTemplates = {}; }
   MustacheTemplates['#{template_name}'] = '#{escape_javascript(data)}';
 })();
       POIROT
